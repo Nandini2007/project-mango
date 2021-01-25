@@ -11,8 +11,8 @@ var chances = 0;
 var world,boy;
 
 function preload(){
-	boy=loadImage("images/boy.png");
-	catapult=loadImage("images/catapult.png");
+	boy=loadImage("boy.png");
+	catapult=loadImage("catapult.png");
   }
 
 function setup() {
