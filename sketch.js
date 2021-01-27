@@ -7,6 +7,7 @@ const Render = Matter.Render;
 const Constraint=Matter.Constraint;
 var treeObj, stoneObj,groundObject, launcherObject;
 var mango1;
+var gameState = "onSling";
 var chances = 0;
 var world,boy;
 
@@ -87,19 +88,24 @@ detectollision(stone,mango11);
 }
 
 function mouseDragged(){
+	if(gameState !== "launched"){
 	stone.body.position.x = mouseX;
 	stone.body.position.y = mouseY;	
+	}
 }
 function mouseReleased(){
 	chain.fly();
-	chances = chances +1;
+	if(gameState === "onSling"){
+		chances = chances +1;
+	}
+	gameState = "launched"
 }
 
 function keyPressed() {
 	if (keyCode === 32) {
     Matter.Body.setPosition(stone.body, {x:217 , y : 364}) 
 	  chain.attach(stone.body);
-	 
+	 gameState = "onSling"
 	  }
 	
   }
